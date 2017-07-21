@@ -18,7 +18,7 @@ class ThemeList extends Component {
     // axios.patch('http://localhost:3000/dailyquotes/motivational')
   }
 
-  changeTheme = () => {
+  changeTheme = (theme) => {
     this.setState({
       theme: this.value
     });
