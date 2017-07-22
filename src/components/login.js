@@ -7,6 +7,7 @@ dotenv.config();
 // dotenv.load({ path: './env'})
 
 const authorizedUrl = 'https://github.com/login/oauth/authorize'
+const clientId =
 // const clientId = process.env.CLIENT_ID
 // const clientId = ENV['CLIENT_ID']
 const scope = 'user'

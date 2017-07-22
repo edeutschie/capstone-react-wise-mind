@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from 'react-toolbox/lib/button/Button';
 // import axios from 'axios';
 // import ThemeListItem from './theme_list_item';
 
@@ -33,7 +34,7 @@ class ThemeList extends Component {
         <li>
           Motivational
           // <input type="button" value="motivational" onClick={ this.changeTheme } />
-          <button onClick={ this.handleClick }>Change Theme</button>
+          <Button raised primary onClick={ this.handleClick }>Change Theme</Button>
         </li>
         <li>
           Creativity
@@ -42,7 +43,7 @@ class ThemeList extends Component {
         </li>
         <li>
           Adies in Internship
-          <button onClick={ this.handleClick("adies_in_internship") }>Change Theme</button>
+          <Button raised primary onClick={ this.handleClick("adies_in_internship") }>Change Theme</Button>
         </li>
       </ul>
     );

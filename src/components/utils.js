@@ -1,3 +1,5 @@
+// import axios from 'axios';
+
 export function getQueryParams() {
   const query = window.location.search.substring(1);
   const pairs = query.split('&').map((str) => str.split('='));
@@ -6,3 +8,5 @@ export function getQueryParams() {
     return memo;
   }, {});
 }
+
+// const baseApiUrl = ''
