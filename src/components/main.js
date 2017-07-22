@@ -4,17 +4,17 @@ import Button from 'react-toolbox/lib/button/Button';
 // import List from './components/list';
 // import Button from './components/button';
 import ThemeForm from './theme_form';
-import ThemeList from './theme_list';
+import PhoneNumForm from './phone_num_form';
+// import ThemeList from './theme_list';
 import DailyQuoteDetail from './daily_quote_detail';
 import axios from 'axios';
 import logo from '../logo.svg';
-import * as utils from './utils';
+// import * as utils from './utils';
 import '../App.css';
 
 class Main extends Component {
   constructor(props) {
     super(props);
-
 
     this.state = {
       quotes: [],
@@ -22,7 +22,7 @@ class Main extends Component {
       theme: 'motivational',
       username: '',
       time: '',
-      id: '',
+      login: this.props.login,
     };
 
 
@@ -30,8 +30,8 @@ class Main extends Component {
     this.userInfoCall();
     // this.dailyQuoteCall();
     this.userDailyQuoteCall();
-    console.log("this.state.id");
-    console.log(this.state.id);
+    console.log("this.state.userId");
+    console.log(this.state.userId);
   }
 
   handleClick = () => {
@@ -73,7 +73,7 @@ class Main extends Component {
 
   userInfoCall() {
     var self = this;
-    axios.get('http://localhost:3000/users/1', {
+    axios.get(`http://localhost:3000/users/1`, {
       params: {
         token: this.props.token
       }
@@ -82,6 +82,7 @@ class Main extends Component {
       self.setState({
         theme: response.data.theme_choice,
         username: response.data.username,
+        userId: response.data.id,
       });
       // this.dailyQuoteCall();
     })
@@ -93,7 +94,7 @@ class Main extends Component {
   userDailyQuoteCall() {
     var self = this;
     // var theme = this.state.theme;
-    axios.get('http://localhost:3000/users/1', {
+    axios.get(`http://localhost:3000/users/1`, {
       params: {
         token: this.props.token
       }
@@ -136,12 +137,10 @@ class Main extends Component {
         <div>Theme:</div>
         <div>{ this.state.theme }</div>
         <ThemeForm />
+        <div>Enter Phone Number:</div>
+        <PhoneNumForm />
         <div>
-          <ThemeList />
-        </div>
-        <div>Delivery Time:</div>
-        <div>
-          <Button raised primary onClick={ this.handleClick }>Change Delivery Time</Button>
+          <Button raised primary onClick={ this.handleClick }>Send Quote To A Friend</Button>
         </div>
 
         <div className="daily-quote">

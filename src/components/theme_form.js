@@ -17,6 +17,8 @@ class ThemeForm extends React.Component {
   handleSubmit(event) {
     //  need code
     var self = this;
+    console.log("this.state.id");
+    console.log(this.state.id);
     axios.patch(`http://localhost:3000/users/${this.state.id}`, {
       params: {
         token: this.props.token//,
@@ -41,7 +43,7 @@ class ThemeForm extends React.Component {
         <label>
           Change Your Theme:
           <select value={this.state.value} onChange={this.handleChange}>
-            <option selected value="motivational">Motivational</option>
+            <option defaultValue="motivational">Motivational</option>
             <option value="creativity">Creativity</option>
             <option value="adies_in_internship">Adies in Internship</option>
           </select>
