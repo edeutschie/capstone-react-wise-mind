@@ -22,7 +22,7 @@ class Main extends Component {
       theme: 'motivational',
       username: '',
       time: '',
-      login: this.props.login,
+      login: '',
     };
 
 
@@ -73,16 +73,20 @@ class Main extends Component {
 
   userInfoCall() {
     var self = this;
-    axios.get(`http://localhost:3000/users/1`, {
+    console.log("user: login");
+    console.log(this.props.login);
+    axios.get(`http://localhost:3000/users/${this.props.login}`, {
       params: {
         token: this.props.token
       }
     })
     .then(function (response) {
+      console.log(response)
       self.setState({
         theme: response.data.theme_choice,
         username: response.data.username,
         userId: response.data.id,
+        login: response.data.login,
       });
       // this.dailyQuoteCall();
     })
@@ -94,7 +98,7 @@ class Main extends Component {
   userDailyQuoteCall() {
     var self = this;
     // var theme = this.state.theme;
-    axios.get(`http://localhost:3000/users/1`, {
+    axios.get(`http://localhost:3000/users/${this.props.login}`, {
       params: {
         token: this.props.token
       }
