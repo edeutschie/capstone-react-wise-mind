@@ -14,24 +14,27 @@ class ThemeForm extends React.Component {
     this.setState({value: event.target.value});
   }
 
-  handleSubmit(event) {
-    var self = this;
-    console.log("this.props.login");
-    console.log(this.props.login);
-    axios.patch(`http://localhost:3000/users/${this.props.login}`, {
-      params: {
-        token: this.props.token,
-        theme_choice: this.state.value
-      }
-    })
-    .then(function (response) {
-      self.setState({
-        dailyQuote: response.data
-      });
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+  handleSubmit() {
+    this.props.onThemeInput(this.state.value);
+    // this.props.theme(event.target.value);
+    // this.setState({theme: event.target.value});
+    // var self = this;
+    // console.log("this.props.login");
+    // console.log(this.props.login);
+    // axios.patch(`http://localhost:3000/users/${this.props.login}`, {
+    //   params: {
+    //     token: this.props.token,
+    //     theme_choice: this.state.value
+    //   }
+    // })
+    // .then(function (response) {
+    //   self.setState({
+    //     dailyQuote: response.data
+    //   });
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
   }
 
   render() {

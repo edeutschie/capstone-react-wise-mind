@@ -9,7 +9,7 @@ import PhoneNumForm from './phone_num_form';
 // import ThemeList from './theme_list';
 import DailyQuoteDetail from './daily_quote_detail';
 import axios from 'axios';
-import logo from '../logo.svg';
+// import logo from '../logo.svg';
 // import * as utils from './utils';
 import '../App.css';
 
@@ -36,11 +36,40 @@ class Main extends Component {
     console.log("this.state.userId");
     console.log(this.state.userId);
     console.log(this.state.login);
+
+    this.handleSubmitTheme = this.handleSubmitTheme.bind(this);
   }
 
   handleClick = () => {
     console.log('the button was clicked');
   };
+
+  handleSubmitTheme(value) {
+    // event.preventDefault();
+    console.log("this.props.value")
+    console.log(value)
+    // this.setState({
+    //   theme: value
+    // })
+    var self = this;
+    console.log("this.props.token");
+    console.log(this.props.token);
+    axios.patch(`http://localhost:3000/users/${self.state.login}`, {
+      params: {
+        token: self.props.token,
+        theme_choice: value
+      }
+    })
+    .then(function (response) {
+      self.setState({
+        theme: response.data,
+        dailyQuote: response.data
+      });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
   // componentDidMount() {
   // componentWillMount() {
   //   var self = this;
@@ -60,7 +89,7 @@ class Main extends Component {
 
   dailyQuoteCall() {
     var self = this;
-    axios.get(`http://localhost:3000/dailyquotes/${this.state.theme}`, {
+    axios.get(`http://localhost:3000/dailyquotes/${self.state.theme}`, {
       params: {
         token: this.props.token
       }
@@ -145,8 +174,9 @@ class Main extends Component {
 
         <div>Theme:</div>
         <div>{ this.state.theme }</div>
-        <ThemeForm />
-
+        <ThemeForm
+          onThemeInput={this.handleSubmitTheme}
+         />
         <PhoneNumForm />
         <div>
           <Button raised primary onClick={ this.handleClick }>Send Quote To A Friend</Button>
