@@ -22,6 +22,7 @@ class PhoneNumForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+      <div>Enter Phone Number:</div>
         <label>
           Phone Number:
           <input type="text" value={this.state.value} onChange={this.handleChange} />

@@ -52,7 +52,6 @@ class Login extends Component {
     return (
 
       <div className="daily-quote">
-        <h1>Quote of the Day</h1>
         <DailyQuoteDetail dailyQuote={this.state.dailyQuote} />
         <h2>Theme: {this.state.theme}</h2>
         <Button raised primary

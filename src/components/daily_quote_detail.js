@@ -6,11 +6,13 @@ const DailyQuoteDetail = ({dailyQuote}) => {
   }
 
   return (
-    <h2>
-      <div>{dailyQuote.text}</div>
-      <div> - {dailyQuote.author}</div>
-    </h2>
-
+    <div className="daily-quote">
+      <h1>Quote of the Day</h1>
+      <h2>
+        <div>{dailyQuote.text}</div>
+        <div> - {dailyQuote.author}</div>
+      </h2>
+    </div>
   );
 };
 

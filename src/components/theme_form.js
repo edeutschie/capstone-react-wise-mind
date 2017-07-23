@@ -15,14 +15,13 @@ class ThemeForm extends React.Component {
   }
 
   handleSubmit(event) {
-    //  need code
     var self = this;
-    console.log("this.state.id");
-    console.log(this.state.id);
-    axios.patch(`http://localhost:3000/users/${this.state.id}`, {
+    console.log("this.props.login");
+    console.log(this.props.login);
+    axios.patch(`http://localhost:3000/users/${this.props.login}`, {
       params: {
-        token: this.props.token//,
-        // theme_choice:
+        token: this.props.token,
+        theme_choice: this.state.value
       }
     })
     .then(function (response) {
@@ -34,8 +33,6 @@ class ThemeForm extends React.Component {
       console.log(error);
     });
   }
-
-
 
   render() {
     return (

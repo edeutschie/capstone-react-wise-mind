@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './header.js';
 // import { getQueryParams } from './utils';
 import Button from 'react-toolbox/lib/button/Button';
 // import List from './components/list';
@@ -23,6 +24,7 @@ class Main extends Component {
       username: '',
       time: '',
       login: '',
+      userId: '',
     };
 
 
@@ -30,8 +32,10 @@ class Main extends Component {
     this.userInfoCall();
     // this.dailyQuoteCall();
     this.userDailyQuoteCall();
+    console.log("inside constructor");
     console.log("this.state.userId");
     console.log(this.state.userId);
+    console.log(this.state.login);
   }
 
   handleClick = () => {
@@ -73,6 +77,7 @@ class Main extends Component {
 
   userInfoCall() {
     var self = this;
+    console.log("inside userInfoCall");
     console.log("user: login");
     console.log(this.props.login);
     axios.get(`http://localhost:3000/users/${this.props.login}`, {
@@ -81,6 +86,7 @@ class Main extends Component {
       }
     })
     .then(function (response) {
+      console.log("response in userInfoCall:")
       console.log(response)
       self.setState({
         theme: response.data.theme_choice,
@@ -109,6 +115,8 @@ class Main extends Component {
       });
       console.log("theme in middle of userDailyQuoteCall");
       console.log(self.state.theme);
+      console.log("user: login from self.state.login");
+      console.log(self.state.login);
       axios.get(`http://localhost:3000/dailyquotes/${self.state.theme}`, {
         params: {
           token: self.props.token
@@ -128,10 +136,7 @@ class Main extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to Wise Minding</h2>
-        </div>
+        <Header />
 
         <div>Username: { this.state.username } </div>
           <Button raised primary>
@@ -141,18 +146,15 @@ class Main extends Component {
         <div>Theme:</div>
         <div>{ this.state.theme }</div>
         <ThemeForm />
-        <div>Enter Phone Number:</div>
+
         <PhoneNumForm />
         <div>
           <Button raised primary onClick={ this.handleClick }>Send Quote To A Friend</Button>
         </div>
-
-        <div className="daily-quote">
-          <h1>Quote of the Day</h1>
           <DailyQuoteDetail dailyQuote={this.state.dailyQuote} />
           <h2>Theme: {this.state.theme}</h2>
-        </div>
       </div>
+
     );
   }
 }
