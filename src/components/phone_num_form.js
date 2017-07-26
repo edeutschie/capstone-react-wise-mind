@@ -16,7 +16,7 @@ class PhoneNumForm extends React.Component {
 
   handleSubmitPhone(event) {
     event.preventDefault();
-    alert('Attempting to text: ' + this.state.value);
+    alert('You entered: ' + this.state.value);
     this.props.onPhoneInput(this.state.value);
     this.setState({ value: '' });
   }

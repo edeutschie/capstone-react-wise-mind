@@ -112,6 +112,7 @@ class Main extends Component {
   userDailyQuoteCall() {
     var self = this;
     axios.get(`http://localhost:3000/users/${self.state.theme}`, {
+    // axios.get(`http://localhost:3000/users/${self.state.login}`, {
       params: {
         token: this.props.token
       }
@@ -141,7 +142,7 @@ class Main extends Component {
 
       <div className="App">
         <Header />
-        <div className="col-md-6 main-img"><img src={love} alt="lit heart shaped candle" className="main-img"/></div>
+        <div className="col-md-6 main-img"><img src={love} alt={"lit heart shaped candle"} className="main-img"/></div>
         <div className="col-md-6 main-content">
 
           <div className="main-text">
