@@ -1,0 +1,27 @@
+.login-img {
+  padding-top: 5%;
+  text-align: center;
+}
+
+.login-content {
+  text-align: center;
+  align: center;
+  padding-right: 5%;
+  padding-top: 4%;
+}
+
+.button {
+  padding-bottom: 10%;
+}
+
+.login-text {
+  padding-top: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  border: 5px solid #ddd;
+}
+
+.login-theme {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}

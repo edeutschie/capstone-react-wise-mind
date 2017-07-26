@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
+import './theme_form.css';
 
 class ThemeForm extends React.Component {
   constructor(props) {
@@ -14,39 +14,23 @@ class ThemeForm extends React.Component {
     this.setState({value: event.target.value});
   }
 
-  handleSubmit() {
+  handleSubmit(event) {
+    event.preventDefault();
     this.props.onThemeInput(this.state.value);
-    // this.props.theme(event.target.value);
-    // this.setState({theme: event.target.value});
-    // var self = this;
-    // console.log("this.props.login");
-    // console.log(this.props.login);
-    // axios.patch(`http://localhost:3000/users/${this.props.login}`, {
-    //   params: {
-    //     token: this.props.token,
-    //     theme_choice: this.state.value
-    //   }
-    // })
-    // .then(function (response) {
-    //   self.setState({
-    //     dailyQuote: response.data
-    //   });
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Change Your Theme:
-          <select value={this.state.value} onChange={this.handleChange}>
-            <option defaultValue="motivational">Motivational</option>
-            <option value="creativity">Creativity</option>
-            <option value="adies_in_internship">Adies in Internship</option>
-          </select>
+          <h4>Change Your Theme:</h4>
+          <div className="dropdown">
+            <select value={this.state.value} onChange={this.handleChange}>
+              <option defaultValue="motivational">motivational</option>
+              <option value="creativity">creativity</option>
+              <option value="adies_in_internship">adies in internship</option>
+            </select>
+          </div>
         </label>
         <input type="submit" value="Submit" />
       </form>

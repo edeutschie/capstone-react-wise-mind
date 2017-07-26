@@ -1,4 +1,3 @@
-// import axios from 'axios';
 
 export function getQueryParams() {
   const query = window.location.search.substring(1);
@@ -8,5 +7,3 @@ export function getQueryParams() {
     return memo;
   }, {});
 }
-
-// const baseApiUrl = ''

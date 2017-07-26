@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
+import Header from './header.js';
 import Button from 'react-toolbox/lib/button/Button';
 import axios from 'axios';
 import DailyQuoteDetail from './daily_quote_detail';
+import lake from './lakeResize.jpg';
+import './login.css';
 
 
-const dotenv = require('dotenv');
-// import GithubIcon from './GithubIcon';
-
-dotenv.config();
-// dotenv.load({ path: './env'})
-
-const authorizedUrl = 'https://github.com/login/oauth/authorize'
-const clientId = 
+// const dotenv = require('dotenv');
+// dotenv.config();
+// const env = dotenv.load({ path: './env'});
+const authorizedUrl = 'https://github.com/login/oauth/authorize';
+const clientId =
+// const clientId = env.parsed.CLIENT_ID;
 // const clientId = process.env.CLIENT_ID
 // const clientId = ENV['CLIENT_ID']
-const scope = 'user'
+const scope = 'user';
 
 class Login extends Component {
 
@@ -52,13 +53,20 @@ class Login extends Component {
     return (
 
       <div className="daily-quote">
-        <DailyQuoteDetail dailyQuote={this.state.dailyQuote} />
-        <h2>Theme: {this.state.theme}</h2>
-        <Button raised primary
-        href={`${authorizedUrl}?client_id=${clientId}&scope=${scope}`}
-         >
-          Login with Github
-          </Button>
+        <Header />
+        <div className="col-md-6 login-img"><img src={lake} alt={"lake at sunset"}/></div>
+        <div className="col-md-6 login-content">
+          <div className="button">
+            <Button raised primary
+              href={`${authorizedUrl}?client_id=${clientId}&scope=${scope}`}>
+              Login with Github
+            </Button>
+          </div>
+          <div className="login-text">
+            <DailyQuoteDetail dailyQuote={this.state.dailyQuote} />
+            <h2 className="login-theme">Theme: {this.state.theme}</h2>
+            </div>
+        </div>
       </div>
     );
   }

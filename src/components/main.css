@@ -1,0 +1,35 @@
+.main-img {
+  padding-top: 4%;
+  text-align: center;
+}
+
+.main-content {
+  text-align: center;
+  align: center;
+  padding-right: 5%;
+  padding-top: 4%;
+}
+
+.main-text {
+  padding-top: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  border: 5px solid #ddd;
+}
+
+.main-theme {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.forms{
+  padding-right: 5%;
+}
+
+h4 {
+  padding-top: 5%;
+}
+
+h3 {
+  padding-top: 3%;
+}
