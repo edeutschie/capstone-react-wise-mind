@@ -38,7 +38,7 @@ class Main extends Component {
 
   handleSubmitTheme(value) {
     var self = this;
-    axios.patch(`http://http://wiseminding.vrtxwfzdmp.us-west-2.elasticbeanstalk.com/${this.state.login}`, {
+    axios.patch(`http://wiseminding.vrtxwfzdmp.us-west-2.elasticbeanstalk.com/users/${this.state.login}`, {
         token: this.props.token,
         theme_choice: value
     })
@@ -55,7 +55,7 @@ class Main extends Component {
   handleSubmitPhone(value) {
     console.log("handleSubmitPhone value")
     console.log(value)
-    axios.post(`http://http://wiseminding.vrtxwfzdmp.us-west-2.elasticbeanstalk.com/notifications/notify`, {
+    axios.post(`http://wiseminding.vrtxwfzdmp.us-west-2.elasticbeanstalk.com/notifications/notify`, {
         token: this.props.token,
         phone_num: value,
         theme: this.state.theme
