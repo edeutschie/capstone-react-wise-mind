@@ -8,7 +8,7 @@ import './login.css';
 
 
 const authorizedUrl = 'https://github.com/login/oauth/authorize'
-const clientId = '12cc4cbd0d2ce79f67f4'
+const clientId = '361faef96e776fabd1ca'
 const scope = 'user'
 // const dotenv = require('dotenv');
 // dotenv.config();
