@@ -35,7 +35,7 @@ class Login extends Component {
 
     openingQuoteCall() {
       var self = this;
-      axios.get(`http://localhost:3000/dailyquotes/motivational`, {
+      axios.get(`http://wiseminding.vrtxwfzdmp.us-west-2.elasticbeanstalk.com/dailyquotes/motivational`, {
         params: {
           token: this.props.token
         }

@@ -38,7 +38,7 @@ class Main extends Component {
 
   handleSubmitTheme(value) {
     var self = this;
-    axios.patch(`http://localhost:3000/users/${this.state.login}`, {
+    axios.patch(`http://http://wiseminding.vrtxwfzdmp.us-west-2.elasticbeanstalk.com/${this.state.login}`, {
         token: this.props.token,
         theme_choice: value
     })
@@ -55,7 +55,7 @@ class Main extends Component {
   handleSubmitPhone(value) {
     console.log("handleSubmitPhone value")
     console.log(value)
-    axios.post(`http://localhost:3000/notifications/notify`, {
+    axios.post(`http://http://wiseminding.vrtxwfzdmp.us-west-2.elasticbeanstalk.com/notifications/notify`, {
         token: this.props.token,
         phone_num: value,
         theme: this.state.theme
@@ -74,7 +74,7 @@ class Main extends Component {
 
   // dailyQuoteCall() {
   //   var self = this;
-  //   axios.get(`http://localhost:3000/dailyquotes/${self.state.theme}`, {
+  //   axios.get(`http://http://wiseminding.vrtxwfzdmp.us-west-2.elasticbeanstalk.com/${self.state.theme}`, {
   //     params: {
   //       token: this.props.token
   //     }
@@ -91,7 +91,7 @@ class Main extends Component {
 
   userInfoCall() {
     var self = this;
-    axios.get(`http://localhost:3000/users/${self.props.login}`, {
+    axios.get(`http://wiseminding.vrtxwfzdmp.us-west-2.elasticbeanstalk.com/users/${self.props.login}`, {
       params: {
         token: this.props.token
       }
@@ -111,7 +111,7 @@ class Main extends Component {
 
   userDailyQuoteCall() {
     var self = this;
-    axios.get(`http://localhost:3000/users/${self.state.theme}`, {
+    axios.get(`http://wiseminding.vrtxwfzdmp.us-west-2.elasticbeanstalk.com/users/${self.state.theme}`, {
     // axios.get(`http://localhost:3000/users/${self.state.login}`, {
       params: {
         token: this.props.token
@@ -121,7 +121,7 @@ class Main extends Component {
       self.setState({
         theme: response.data.theme_choice
       });
-      axios.get(`http://localhost:3000/dailyquotes/${self.state.theme}`, {
+      axios.get(`http://wiseminding.vrtxwfzdmp.us-west-2.elasticbeanstalk.com/dailyquotes/${self.state.theme}`, {
         params: {
           token: self.props.token
         }
